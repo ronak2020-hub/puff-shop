@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puff Delight | Delicious Puffs, Made Fresh for You</title>
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <i class="fas fa-bread-slice"></i>
+        <span>Puff Delight</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <button class="icon-btn" onclick="focusSearchInput()" title="Search">
+          <i class="fas fa-search"></i>
+        </button>
+
+        <button class="icon-btn" onclick="openDrawer('wishlist-drawer')" title="Wishlist">
+          <i class="far fa-heart"></i>
+          <span class="icon-badge" id="wishlist-badge">0</span>
+        </button>
+
+        <button class="icon-btn" onclick="openDrawer('cart-drawer')" title="Shopping Cart">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="icon-badge" id="cart-badge">0</span>
+        </button>
+
+        <a href="login.html" class="user-nav-btn" id="user-nav-btn">
+          <i class="fas fa-sign-in-alt"></i>
+          <span>Login</span>
+        </a>
+
+        <button class="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>Delicious Puffs, <span>Made Fresh</span> for You</h1>
+        <p>Enjoy crispy, delicious and freshly baked puffs with amazing flavors.</p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary">
+            <i class="fas fa-utensils"></i> Order Now
+          </a>
+          <a href="#products" class="btn btn-secondary">
+            Explore Menu
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <div class="hero-image-card">
+          <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80" alt="Crispy Fresh Puff Delight">
+        </div>
+        <div class="hero-floating-badge">
+          <div class="badge-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <div class="badge-text">
+            <span>Guaranteed</span>
+            <strong>100% Freshly Baked</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search & Category Filters -->
+  <section class="controls-section">
+    <div class="container controls-wrapper">
+      <div class="search-container">
+        <input type="text" id="search-input" class="search-input-box" placeholder="Search delicious puffs (e.g., Cheese, Paneer, Spicy)...">
+        <i class="fas fa-search search-icon-inside"></i>
+      </div>
+
+      <div class="category-filters">
+        <button class="filter-btn active" onclick="setCategory('All', this)">All</button>
+        <button class="filter-btn" onclick="setCategory('Veg', this)">Veg</button>
+        <button class="filter-btn" onclick="setCategory('Cheese', this)">Cheese</button>
+        <button class="filter-btn" onclick="setCategory('Paneer', this)">Paneer</button>
+        <button class="filter-btn" onclick="setCategory('Spicy', this)">Spicy</button>
+        <button class="filter-btn" onclick="setCategory('Special', this)">Special</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section" id="products">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Popular Menu</h2>
+        <p>Choose from our handcrafted menu of oven-baked crispy puffs</p>
+      </div>
+
+      <div class="product-grid" id="products-grid-container">
+        <!-- Dynamically rendered by script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="container about-grid">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Bakery Fresh Puffs">
+      </div>
+      <div class="about-content">
+        <div class="section-title" style="text-align: left;">
+          <h2>About Puff Delight</h2>
+          <p style="margin-left: 0;">Crafting crispy joy in every single bite.</p>
+        </div>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+          At <strong>Puff Delight</strong>, we provide fresh, crispy, and delicious puff varieties baked fresh every single day. Our expert bakers combine golden flaky pastry with farm-fresh vegetables, rich cheeses, and spicy fillings to deliver an unforgettable taste experience.
+        </p>
+
+        <div class="about-features">
+          <div class="feature-box">
+            <i class="fas fa-leaf feature-icon"></i>
+            <div class="feature-info">
+              <h4>Fresh Ingredients</h4>
+              <p>100% farm-fresh veggies & premium cheese.</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <i class="fas fa-pepper-hot feature-icon"></i>
+            <div class="feature-info">
+              <h4>Multiple Flavors</h4>
+              <p>Over 15 spicy, cheesy & savory choices.</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <i class="fas fa-tag feature-icon"></i>
+            <div class="feature-info">
+              <h4>Affordable Prices</h4>
+              <p>Delicious puffs starting at just ₹25 .</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <i class="fas fa-motorcycle feature-icon"></i>
+            <div class="feature-info">
+              <h4>Fast Service</h4>
+              <p>Piping hot puffs delivered quickly to your door.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you! Reach out for orders, feedback, or inquiries.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info-card">
+          <h3>Get In Touch</h3>
+          <p>Visit our store or send us a message directly.</p>
+
+          <div class="info-item">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <strong>Phone Number</strong>
+              <div style="font-size: 0.9rem; opacity: 0.9;">+91 88492 91596</div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email Address</strong>
+              <div style="font-size: 0.9rem; opacity: 0.9;">orders@puffdelight.com</div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <strong>Bakery Address</strong>
+              <div style="font-size: 0.9rem; opacity: 0.9;">123 Puff Street, Food Hub, City</div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fas fa-clock"></i>
+            <div>
+              <strong>Opening Hours</strong>
+              <div style="font-size: 0.9rem; opacity: 0.9;">Mon - Sun: 9:00 AM - 10:00 PM</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <form onsubmit="handleContactForm(event)">
+            <div class="form-group">
+              <label for="contact-name">Full Name</label>
+              <input type="text" id="contact-name" class="form-control" placeholder="Your name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" class="form-control" placeholder="Your email address" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">Your Message</label>
+              <textarea id="contact-message" class="form-control" placeholder="How can we help you?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <i class="fas fa-bread-slice"></i>
+            <span>Puff Delight</span>
+          </a>
+          <p>Bringing you hot, crispy, and delicious oven-baked puffs crafted with love and passion.</p>
+          <div class="social-links">
+            <a href="javascript:void(0)" onclick="showToast('Follow us on Instagram! 📸', 'info')" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="javascript:void(0)" onclick="showToast('Follow us on Facebook! 👍', 'info')" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="javascript:void(0)" onclick="showToast('Subscribe to our YouTube! 📹', 'info')" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="account.html">My Account</a></li>
+            <li><a href="account.html">My Orders</a></li>
+            <li><a href="javascript:void(0)" onclick="openDrawer('wishlist-drawer')">Wishlist</a></li>
+            <li><a href="javascript:void(0)" onclick="openDrawer('cart-drawer')">Shopping Cart</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Support & Orders</h4>
+          <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6;">
+            Puff Delight <br>
+            123 Puff Street, Food Hub<br>
+            Email: orders@puffdelight.com<br>
+            Phone: +91 88492 91596
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Puff Delight. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="drawer-overlay" id="cart-drawer" onclick="if(event.target === this) closeDrawer('cart-drawer')">
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <h3><i class="fas fa-shopping-basket"></i> Your Shopping Cart</h3>
+        <button class="close-drawer-btn" onclick="closeDrawer('cart-drawer')">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="drawer-body" id="cart-drawer-body">
+        <!-- Rendered by script.js -->
+      </div>
+
+      <div class="drawer-footer">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">₹0</span>
+        </div>
+        <div class="summary-row total-row">
+          <span>Total</span>
+          <span id="cart-total">₹0</span>
+        </div>
+        <div style="display: flex; gap: 0.8rem; margin-top: 1rem;">
+          <button class="btn btn-secondary" style="flex: 1; font-size: 0.88rem;" onclick="closeDrawer('cart-drawer')">
+            Continue Shopping
+          </button>
+          <button class="btn btn-primary" style="flex: 1; font-size: 0.88rem;" onclick="proceedToCheckout()">
+            Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wishlist Drawer -->
+  <div class="drawer-overlay" id="wishlist-drawer" onclick="if(event.target === this) closeDrawer('wishlist-drawer')">
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <h3><i class="fas fa-heart" style="color: var(--accent-crimson);"></i> Your Wishlist</h3>
+        <button class="close-drawer-btn" onclick="closeDrawer('wishlist-drawer')">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="drawer-body" id="wishlist-drawer-body">
+        <!-- Rendered by script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div class="modal-backdrop" id="checkout-modal" onclick="if(event.target === this) closeModal('checkout-modal')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3><i class="fas fa-truck-loading"></i> Complete Your Order</h3>
+        <button class="close-drawer-btn" onclick="closeModal('checkout-modal')">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form id="checkout-form" onsubmit="placeOrder(event)" class="checkout-grid">
+          <div>
+            <h4 style="margin-bottom: 1rem; color: var(--primary-dark);">Customer Details</h4>
+            <div class="form-group">
+              <label for="checkout-name">Full Name *</label>
+              <input type="text" id="checkout-name" class="form-control" placeholder="Enter your full name" required>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label for="checkout-email">Email *</label>
+                <input type="email" id="checkout-email" class="form-control" placeholder="name@email.com" required>
+              </div>
+              <div class="form-group">
+                <label for="checkout-phone">Phone Number *</label>
+                <input type="tel" id="checkout-phone" class="form-control" placeholder="10-digit mobile number" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="checkout-address">Delivery Address *</label>
+              <input type="text" id="checkout-address" class="form-control" placeholder="Street address, house no, landmark" required>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label for="checkout-city">City *</label>
+                <input type="text" id="checkout-city" class="form-control" placeholder="City" required>
+              </div>
+              <div class="form-group">
+                <label for="checkout-pincode">Pincode *</label>
+                <input type="text" id="checkout-pincode" class="form-control" placeholder="Pincode" required>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 style="margin-bottom: 0.8rem; color: var(--primary-dark);">Order Summary</h4>
+            <div id="checkout-order-summary" style="background: var(--bg-cream-light); padding: 1rem; border-radius: var(--radius-md); max-height: 150px; overflow-y: auto; margin-bottom: 1rem;">
+              <!-- Rendered dynamically -->
+            </div>
+
+            <div class="summary-row total-row" style="margin-bottom: 1.5rem;">
+              <span>Grand Total</span>
+              <span id="checkout-grand-total">₹0</span>
+            </div>
+
+            <h4 style="margin-bottom: 0.6rem; color: var(--primary-dark);">Payment Option</h4>
+            <div class="payment-options-group">
+              <label class="payment-option-card selected" onclick="selectPaymentOption(this)">
+                <input type="radio" name="payment-method" value="COD" checked>
+                <i class="fas fa-money-bill-wave" style="color: #2E7D32;"></i>
+                <strong>Cash on Delivery</strong>
+              </label>
+              <label class="payment-option-card" onclick="selectPaymentOption(this)">
+                <input type="radio" name="payment-method" value="ONLINE">
+                <i class="fas fa-credit-card" style="color: var(--accent-warm);"></i>
+                <strong>Online Payment (UPI/Card)</strong>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.05rem;">
+            <i class="fas fa-check-circle"></i> Place Order Now
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Modal -->
+  <div class="modal-backdrop" id="order-confirmation-modal" onclick="if(event.target === this) closeModal('order-confirmation-modal')">
+    <div class="modal-box">
+      <div class="modal-body confirmation-card">
+        <div class="confirmation-icon">
+          <i class="fas fa-check"></i>
+        </div>
+        <h2>🎉 Order Placed Successfully!</h2>
+        <p style="color: var(--text-muted); margin-top: 0.4rem;">Thank you for ordering with Puff Delight. Your crispy hot puffs are being prepared!</p>
+        
+        <div class="order-badge-pill" id="conf-order-id">#PD1001</div>
+
+        <div style="background: var(--bg-cream-light); padding: 1rem; border-radius: var(--radius-md); margin: 1.2rem 0;">
+          <div class="summary-row">
+            <span>Total Amount Paid / Payable</span>
+            <strong id="conf-order-total" style="color: var(--primary-dark); font-size: 1.1rem;">₹0</strong>
+          </div>
+          <div class="summary-row" style="margin-top: 0.4rem; color: var(--accent-green); font-weight: 500;">
+            <span><i class="fas fa-clock"></i> Estimated Delivery</span>
+            <span>30 - 45 Mins</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
+          <a href="account.html" class="btn btn-primary">
+            <i class="fas fa-receipt"></i> View Order History
+          </a>
+          <button class="btn btn-secondary" onclick="closeModal('order-confirmation-modal')">
+            Continue Shopping
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>

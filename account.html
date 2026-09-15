@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account | Puff Delight</title>
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <i class="fas fa-bread-slice"></i>
+        <span>Puff Delight</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <a href="index.html#products" class="icon-btn" title="Search">
+          <i class="fas fa-search"></i>
+        </a>
+
+        <button class="icon-btn" onclick="openDrawer('wishlist-drawer')" title="Wishlist">
+          <i class="far fa-heart"></i>
+          <span class="icon-badge" id="wishlist-badge">0</span>
+        </button>
+
+        <button class="icon-btn" onclick="openDrawer('cart-drawer')" title="Shopping Cart">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="icon-badge" id="cart-badge">0</span>
+        </button>
+
+        <a href="account.html" class="user-nav-btn" id="user-nav-btn">
+          <i class="fas fa-user-circle"></i>
+          <span>Account</span>
+        </a>
+
+        <button class="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- User Account Dashboard -->
+  <section class="dashboard-section">
+    <div class="container account-grid">
+      
+      <!-- Sidebar Profile & Menu -->
+      <aside class="account-sidebar">
+        <div class="user-profile-header">
+          <div class="avatar-circle" id="profile-avatar">U</div>
+          <h3 id="profile-user-name">User Name</h3>
+          <p id="profile-user-email">user@example.com</p>
+          <p id="profile-user-phone" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;"></p>
+        </div>
+
+        <nav class="dash-menu">
+          <button class="dash-menu-item active">
+            <i class="fas fa-receipt"></i> My Orders
+          </button>
+          <button class="dash-menu-item" onclick="openDrawer('wishlist-drawer')">
+            <i class="far fa-heart"></i> Wishlist
+          </button>
+          <button class="dash-menu-item" onclick="openDrawer('cart-drawer')">
+            <i class="fas fa-shopping-basket"></i> Cart
+          </button>
+          <button class="dash-menu-item logout-item" onclick="handleLogout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </nav>
+      </aside>
+
+      <!-- Account Main Content Panel -->
+      <main class="account-content-card">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; border-bottom: 2px solid var(--bg-cream-warm); padding-bottom: 1rem;">
+          <h2><i class="fas fa-history" style="color: var(--accent-gold);"></i> My Order History</h2>
+          <a href="index.html#products" class="btn btn-secondary" style="font-size: 0.88rem; padding: 0.5rem 1.2rem;">
+            <i class="fas fa-plus"></i> New Order
+          </a>
+        </div>
+
+        <div id="account-orders-list">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+      </main>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <i class="fas fa-bread-slice"></i>
+            <span>Puff Delight</span>
+          </a>
+          <p>Bringing you hot, crispy, and delicious oven-baked puffs crafted with love and passion.</p>
+          <div class="social-links">
+            <a href="javascript:void(0)" onclick="showToast('Follow us on Instagram! 📸', 'info')" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="javascript:void(0)" onclick="showToast('Follow us on Facebook! 👍', 'info')" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="javascript:void(0)" onclick="showToast('Subscribe to our YouTube! 📹', 'info')" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="account.html">My Account</a></li>
+            <li><a href="account.html">My Orders</a></li>
+            <li><a href="javascript:void(0)" onclick="openDrawer('wishlist-drawer')">Wishlist</a></li>
+            <li><a href="javascript:void(0)" onclick="openDrawer('cart-drawer')">Shopping Cart</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Support & Orders</h4>
+          <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6;">
+            Puff Delight <br>
+            123 Puff Street, Food Hub<br>
+            Email: orders@puffdelight.com<br>
+            Phone: +91 88492 91596
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Puff Delight. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="drawer-overlay" id="cart-drawer" onclick="if(event.target === this) closeDrawer('cart-drawer')">
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <h3><i class="fas fa-shopping-basket"></i> Your Shopping Cart</h3>
+        <button class="close-drawer-btn" onclick="closeDrawer('cart-drawer')">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="drawer-body" id="cart-drawer-body">
+        <!-- Rendered by script.js -->
+      </div>
+
+      <div class="drawer-footer">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">₹0</span>
+        </div>
+        <div class="summary-row total-row">
+          <span>Total</span>
+          <span id="cart-total">₹0</span>
+        </div>
+        <div style="display: flex; gap: 0.8rem; margin-top: 1rem;">
+          <button class="btn btn-secondary" style="flex: 1; font-size: 0.88rem;" onclick="closeDrawer('cart-drawer')">
+            Continue Shopping
+          </button>
+          <button class="btn btn-primary" style="flex: 1; font-size: 0.88rem;" onclick="proceedToCheckout()">
+            Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wishlist Drawer -->
+  <div class="drawer-overlay" id="wishlist-drawer" onclick="if(event.target === this) closeDrawer('wishlist-drawer')">
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <h3><i class="fas fa-heart" style="color: var(--accent-crimson);"></i> Your Wishlist</h3>
+        <button class="close-drawer-btn" onclick="closeDrawer('wishlist-drawer')">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="drawer-body" id="wishlist-drawer-body">
+        <!-- Rendered by script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div class="modal-backdrop" id="checkout-modal" onclick="if(event.target === this) closeModal('checkout-modal')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3><i class="fas fa-truck-loading"></i> Complete Your Order</h3>
+        <button class="close-drawer-btn" onclick="closeModal('checkout-modal')">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form id="checkout-form" onsubmit="placeOrder(event)" class="checkout-grid">
+          <div>
+            <h4 style="margin-bottom: 1rem; color: var(--primary-dark);">Customer Details</h4>
+            <div class="form-group">
+              <label for="checkout-name">Full Name *</label>
+              <input type="text" id="checkout-name" class="form-control" placeholder="Enter your full name" required>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label for="checkout-email">Email *</label>
+                <input type="email" id="checkout-email" class="form-control" placeholder="name@email.com" required>
+              </div>
+              <div class="form-group">
+                <label for="checkout-phone">Phone Number *</label>
+                <input type="tel" id="checkout-phone" class="form-control" placeholder="10-digit mobile number" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="checkout-address">Delivery Address *</label>
+              <input type="text" id="checkout-address" class="form-control" placeholder="Street address, house no, landmark" required>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label for="checkout-city">City *</label>
+                <input type="text" id="checkout-city" class="form-control" placeholder="City" required>
+              </div>
+              <div class="form-group">
+                <label for="checkout-pincode">Pincode *</label>
+                <input type="text" id="checkout-pincode" class="form-control" placeholder="Pincode" required>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 style="margin-bottom: 0.8rem; color: var(--primary-dark);">Order Summary</h4>
+            <div id="checkout-order-summary" style="background: var(--bg-cream-light); padding: 1rem; border-radius: var(--radius-md); max-height: 150px; overflow-y: auto; margin-bottom: 1rem;">
+              <!-- Rendered dynamically -->
+            </div>
+
+            <div class="summary-row total-row" style="margin-bottom: 1.5rem;">
+              <span>Grand Total</span>
+              <span id="checkout-grand-total">₹0</span>
+            </div>
+
+            <h4 style="margin-bottom: 0.6rem; color: var(--primary-dark);">Payment Option</h4>
+            <div class="payment-options-group">
+              <label class="payment-option-card selected" onclick="selectPaymentOption(this)">
+                <input type="radio" name="payment-method" value="COD" checked>
+                <i class="fas fa-money-bill-wave" style="color: #2E7D32;"></i>
+                <strong>Cash on Delivery</strong>
+              </label>
+              <label class="payment-option-card" onclick="selectPaymentOption(this)">
+                <input type="radio" name="payment-method" value="ONLINE">
+                <i class="fas fa-credit-card" style="color: var(--accent-warm);"></i>
+                <strong>Online Payment (UPI/Card)</strong>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.05rem;">
+            <i class="fas fa-check-circle"></i> Place Order Now
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Modal -->
+  <div class="modal-backdrop" id="order-confirmation-modal" onclick="if(event.target === this) closeModal('order-confirmation-modal')">
+    <div class="modal-box">
+      <div class="modal-body confirmation-card">
+        <div class="confirmation-icon">
+          <i class="fas fa-check"></i>
+        </div>
+        <h2>🎉 Order Placed Successfully!</h2>
+        <p style="color: var(--text-muted); margin-top: 0.4rem;">Thank you for ordering with Puff Delight. Your crispy hot puffs are being prepared!</p>
+        
+        <div class="order-badge-pill" id="conf-order-id">#PD1001</div>
+
+        <div style="background: var(--bg-cream-light); padding: 1rem; border-radius: var(--radius-md); margin: 1.2rem 0;">
+          <div class="summary-row">
+            <span>Total Amount Paid / Payable</span>
+            <strong id="conf-order-total" style="color: var(--primary-dark); font-size: 1.1rem;">₹0</strong>
+          </div>
+          <div class="summary-row" style="margin-top: 0.4rem; color: var(--accent-green); font-weight: 500;">
+            <span><i class="fas fa-clock"></i> Estimated Delivery</span>
+            <span>30 - 45 Mins</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
+          <button class="btn btn-primary" onclick="closeModal('order-confirmation-modal'); renderAccountOrders();">
+            <i class="fas fa-receipt"></i> View Order History
+          </button>
+          <a href="index.html#products" class="btn btn-secondary">
+            Continue Shopping
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
