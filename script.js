@@ -627,10 +627,8 @@ function placeOrder(event) {
 // User Registration Handler
 function handleRegister(event) {
   event.preventDefault();
-
-  const name = document.getElementById("reg-name").value.trim();
+   
   const email = document.getElementById("reg-email").value.trim().toLowerCase();
-  const phone = document.getElementById("reg-phone").value.trim();
   const password = document.getElementById("reg-password").value;
   const confirmPassword = document.getElementById("reg-confirm-password").value;
 
