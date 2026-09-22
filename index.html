@@ -275,7 +275,7 @@
             <li><a href="account.html">My Account</a></li>
             <li><a href="account.html">My Orders</a></li>
             <li><a href="javascript:void(0)" onclick="openDrawer('wishlist-drawer')">Wishlist</a></li>
-            <li><a href="javascript:void(0)" onclick="openDrawer('cart-drawer')">Shopping Cart</a></li>
+            <li><a href="javascript:void(0)" onclick="openDrawer('cart-drawer')"> Cart</a></li>
           </ul>
         </div>
 
@@ -300,7 +300,7 @@
   <div class="drawer-overlay" id="cart-drawer" onclick="if(event.target === this) closeDrawer('cart-drawer')">
     <div class="drawer-panel">
       <div class="drawer-header">
-        <h3><i class="fas fa-shopping-basket"></i> Your Shopping Cart</h3>
+        <h3><i class="fas fa-shopping-basket"></i> You Cart</h3>
         <button class="close-drawer-btn" onclick="closeDrawer('cart-drawer')">
           <i class="fas fa-times"></i>
         </button>
@@ -321,7 +321,7 @@
         </div>
         <div style="display: flex; gap: 0.8rem; margin-top: 1rem;">
           <button class="btn btn-secondary" style="flex: 1; font-size: 0.88rem;" onclick="closeDrawer('cart-drawer')">
-            Continue Shopping
+            Continue
           </button>
           <button class="btn btn-primary" style="flex: 1; font-size: 0.88rem;" onclick="proceedToCheckout()">
             Checkout
